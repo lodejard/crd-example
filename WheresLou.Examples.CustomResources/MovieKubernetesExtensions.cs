@@ -1,10 +1,5 @@
 ﻿using k8s;
-using k8s.Models;
 using Microsoft.Rest.Serialization;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WheresLou.Examples.CustomResources.Models;
@@ -15,42 +10,42 @@ namespace WheresLou.Examples.CustomResources
     {
         public static async Task<V1alpha1Movie> ReadNamespacedMovieAsync(this IKubernetes operations, string name, string namespaceParameter, CancellationToken cancellationToken = default)
         {
-            var result = await operations.GetNamespacedCustomObjectAsync(
+            var result = await operations.GetNamespacedCustomObjectWithHttpMessagesAsync(
                 group: V1alpha1Movie.KubeGroup,
                 version: V1alpha1Movie.KubeApiVersion,
                 namespaceParameter: namespaceParameter,
                 plural: V1alpha1Movie.KubePluralName,
                 name: name,
-                cancellationToken: cancellationToken);
+                cancellationToken: cancellationToken).ConfigureAwait(false);
             
-            return SafeJsonConvert.DeserializeObject<V1alpha1Movie>(SafeJsonConvert.SerializeObject(result, operations.SerializationSettings), operations.DeserializationSettings);
+            return SafeJsonConvert.DeserializeObject<V1alpha1Movie>(await result.Response.Content.ReadAsStringAsync().ConfigureAwait(false), operations.DeserializationSettings);
         }
 
         public static async Task<V1alpha1Movie> ReplaceNamespacedMovieAsync(this IKubernetes operations, V1alpha1Movie body, string name, string namespaceParameter, CancellationToken cancellationToken = default)
         {
-            var result = await operations.ReplaceNamespacedCustomObjectAsync(
+            var result = await operations.ReplaceNamespacedCustomObjectWithHttpMessagesAsync(
                 body: body,
                 group: V1alpha1Movie.KubeGroup,
                 version: V1alpha1Movie.KubeApiVersion,
                 namespaceParameter: namespaceParameter,
                 plural: V1alpha1Movie.KubePluralName,
                 name: name,
-                cancellationToken: cancellationToken);
+                cancellationToken: cancellationToken).ConfigureAwait(false);
 
-            return SafeJsonConvert.DeserializeObject<V1alpha1Movie>(SafeJsonConvert.SerializeObject(result, operations.SerializationSettings), operations.DeserializationSettings);
+            return SafeJsonConvert.DeserializeObject<V1alpha1Movie>(await result.Response.Content.ReadAsStringAsync().ConfigureAwait(false), operations.DeserializationSettings);
         }
 
         public static async Task<V1alpha1Movie> CreateNamespacedMovieAsync(this IKubernetes operations, V1alpha1Movie body, string namespaceParameter,CancellationToken cancellationToken = default)
         {
-            var result = await operations.CreateNamespacedCustomObjectAsync(
+            var result = await operations.CreateNamespacedCustomObjectWithHttpMessagesAsync(
                 body: body,
                 group: V1alpha1Movie.KubeGroup,
                 version: V1alpha1Movie.KubeApiVersion,
                 namespaceParameter: namespaceParameter,
                 plural: V1alpha1Movie.KubePluralName,
-                cancellationToken: cancellationToken);
+                cancellationToken: cancellationToken).ConfigureAwait(false);
 
-            return SafeJsonConvert.DeserializeObject<V1alpha1Movie>(SafeJsonConvert.SerializeObject(result, operations.SerializationSettings), operations.DeserializationSettings);
+            return SafeJsonConvert.DeserializeObject<V1alpha1Movie>(await result.Response.Content.ReadAsStringAsync().ConfigureAwait(false), operations.DeserializationSettings);
         }
     }
 }

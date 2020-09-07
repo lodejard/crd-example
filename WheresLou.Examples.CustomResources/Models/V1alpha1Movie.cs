@@ -2,11 +2,7 @@
 using k8s.Models;
 using Newtonsoft.Json;
 using NJsonSchema.Annotations;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace WheresLou.Examples.CustomResources.Models
 {
