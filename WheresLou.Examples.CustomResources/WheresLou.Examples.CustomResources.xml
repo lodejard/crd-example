@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WheresLou.Examples.CustomResources</name>
+    </assembly>
+    <members>
+        <member name="T:WheresLou.Examples.CustomResources.Models.V1alpha1Movie">
+            <summary>
+            Namespaced instance of a movie resource.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1Movie.Spec">
+            <summary>
+            Specification of the movie.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1Movie.Status">
+            <summary>
+            The status of the movie.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1MovieSpec.Title">
+            <summary>
+            Name of the movie in it's original language.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1MovieStatus.Playing">
+            <summary>
+            True if the movie is currently playing.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1MovieStatus.Reviews">
+            <summary>
+            Most recent reviews left by viewers.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1MovieReview.Name">
+            <summary>
+            Username which uniquely identifies the review
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1MovieReview.Rating">
+            <summary>
+            Viewer rating from 1 to 5 stars.
+            </summary>
+        </member>
+        <member name="P:WheresLou.Examples.CustomResources.Models.V1alpha1MovieReview.Comments">
+            <summary>
+            Optional comments left by reviewer.
+            </summary>
+        </member>
+    </members>
+</doc>

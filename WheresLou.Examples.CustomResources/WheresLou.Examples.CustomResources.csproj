@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>C:\data\projects\github.com\lodejard\crd-example\WheresLou.Examples.CustomResources\WheresLou.Examples.CustomResources.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="KubernetesClient" Version="2.0.29" />
+    <PackageReference Include="NJsonSchema" Version="10.1.24" />
+  </ItemGroup>
+
+</Project>

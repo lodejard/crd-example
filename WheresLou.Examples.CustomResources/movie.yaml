@@ -1,0 +1,21 @@
+{
+  "apiVersion": "whereslou.com/v1alpha1",
+  "kind": "Movie",
+  "metadata": {
+    "name": "cthd",
+    "namespace": "contoso"
+  },
+  "spec": {
+    "title": "Crouching Tiger Hidden Dragon"
+  },
+  "status": {
+    "playing": false,
+    "reviews": [
+      {
+        "name": "alice",
+        "rating": 5.0,
+        "comments": "What's not to love about this movie?"
+      }
+    ]
+  }
+}

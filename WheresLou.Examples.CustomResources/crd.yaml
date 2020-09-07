@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "name": "movies.whereslou.com"
+  },
+  "spec": {
+    "group": "whereslou.com",
+    "names": {
+      "kind": "Movie",
+      "plural": "movies"
+    },
+    "scope": "Namespaced",
+    "versions": [
+      {
+        "additionalPrinterColumns": [
+          {
+            "jsonPath": ".spec.title",
+            "name": "Title",
+            "type": "string"
+          },
+          {
+            "jsonPath": ".status.playing",
+            "name": "Playing",
+            "type": "boolean"
+          }
+        ],
+        "name": "v1alpha1",
+        "schema": {
+          "openAPIV3Schema": {
+            "description": "Namespaced instance of a movie resource.",
+            "properties": {
+              "apiVersion": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "spec": {
+                "description": "Specification of the movie.",
+                "properties": {
+                  "title": {
+                    "description": "Name of the movie in it's original language.",
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "status": {
+                "description": "The status of the movie.",
+                "properties": {
+                  "playing": {
+                    "description": "True if the movie is currently playing.",
+                    "type": "boolean"
+                  },
+                  "reviews": {
+                    "description": "Most recent reviews left by viewers.",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Username which uniquely identifies the review"
+                        },
+                        "rating": {
+                          "type": "number",
+                          "description": "Viewer rating from 1 to 5 stars.",
+                          "format": "double"
+                        },
+                        "comments": {
+                          "type": "string",
+                          "description": "Optional comments left by reviewer.",
+                          "x-nullable": true
+                        }
+                      }
+                    },
+                    "type": "array",
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map"
+                  }
+                },
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              }
+            },
+            "title": "V1alpha1Movie",
+            "type": "object"
+          }
+        },
+        "served": true,
+        "storage": true
+      }
+    ]
+  }
+}
